@@ -31,6 +31,4 @@ Usage of "Reads_SNV_inference.py" or "Reads_SNV_inference_accelerate_complex_ver
 Toy Example: ```python Reads_SNV_inference.py  \Toy example\0_reads_bam.bam \Toy example\0_reads_reference.fasta \Toy example 50 2 5``` to infer the 2 haplotypes of one person with 50 reads using 5 cores. 
 
 
-```python
 
-```
