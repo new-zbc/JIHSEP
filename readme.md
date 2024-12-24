@@ -1,12 +1,12 @@
-# Joint Inference of Haplotypes and Sequencing Error Profile (JIHSEP) with Third-generation Sequencing Data
+# Direct Inference of Haplotypes from Sequencing Data
 
 ## 1. Introduction
 
-This guide is intended to help readers utilize the haplotype inference tool ***JIHSEP***. Unlike previous algorithms, ***JIHSEP*** can simultaneously infer the sequencing error profile and haplotypes, thereby reducing accumulated errors. The accompanying paper demonstrates its robustness against higher sequencing errors and its capability to infer haplotypes in polyploid cases.
+This guide is intended to help readers utilize the haplotype inference tool ***DIHap***. Unlike previous algorithms, ***DIHap*** can simultaneously infer the sequencing error profile and haplotypes, thereby reducing accumulated errors. The accompanying paper demonstrates its robustness against higher sequencing errors and its capability to infer haplotypes in polyploid cases.
 
-In bulk sequencing data, the reads lack cell type labels. The advantages of ***JIHSEP*** will assist researchers in studying the correlation between single nucleotide variations (SNVs), enabling multivariate association studies related to disease symptoms. Additionally, for certain animals and crops, such as fish and potatoes, ***JIHSEP*** can help identify relevant variations related to feed and cultivation. Thus, the algorithm has broad applicability in both research and practical applications.
+In bulk sequencing data, the reads lack cell type labels. The advantages of ***DIHap*** will assist researchers in studying the correlation between single nucleotide variations (SNVs), enabling multivariate association studies related to disease symptoms. Additionally, for certain animals and crops, such as fish and potatoes, ***DIHap*** can help identify relevant variations related to feed and cultivation. Thus, the algorithm has broad applicability in both research and practical applications.
 
-***JIHSEP*** is run under the conda environment with python code.
+***DIHap*** is run under the conda environment with python code.
 
 ## 2. Steps for installation
 
