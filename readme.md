@@ -12,7 +12,7 @@ In bulk sequencing data, the reads lack cell type labels. The advantages of ***D
 
 1. Follow the https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html to download the conda environment on your Linux or MacOS operation system. Although, the Windows system supports the conda, it does not work with some package related with biological package.
 
-2. Down load the zipped package named "samtools.rar".
+2. Down load the zipped package named "[DIHap_sandbox.tar.gz](https://drive.google.com/drive/folders/1jAqb9CF_JGgxz27k0paoil-e3OnzPami?usp=share_link)" from https://drive.google.com/drive/folders/1jAqb9CF_JGgxz27k0paoil-e3OnzPami?usp=share_link.
 
 3. Upload and unzip the "samtools.rar" to the "envs" folder in your server or own computer. One example after Step 1 is "\home\anaconda3\envs\".
 
