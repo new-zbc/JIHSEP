@@ -42,6 +42,8 @@ if __name__ == '__main__':
     main_url_input_bam = sys.argv[2]
     main_url_input_ref = sys.argv[3]
     main_url_save = sys.argv[4]
+    start_region = int(sys.argv[5])
+    end_region = int(sys.argv[6])
 
   
     corretion_eps_from_zero = 0.0000000001
@@ -64,7 +66,7 @@ if __name__ == '__main__':
     for read_xun in inbam.fetch():
             if not read_xun.is_secondary and not read_xun.is_unmapped and not read_xun.is_supplementary:
                 read_name = read_xun.query_name
-                read_start = read_xun.reference_start
+                read_start = read_xun.reference_start -start_region
                 read_seq = (read_xun.query_sequence).lower()
                 read_cigar = read_xun.cigar
                 if len(read_cigar)>0:
@@ -129,7 +131,7 @@ if __name__ == '__main__':
     fasta_file_path = main_url_input_ref 
     fasta_file = pysam.FastaFile(fasta_file_path)
     seqname = fasta_file.references[0]
-    BestRefSeq = (fasta_file.fetch(seqname)).lower()
+    BestRefSeq = (fasta_file.fetch(seqname,start_region,end_region+1)).lower()
     n_c = len(BestRefSeq)#stabndard bone
     
     ### refine the reference
