@@ -18,19 +18,41 @@ In bulk sequencing data, the reads lack cell type labels. The advantages of ***D
 
 4. If your unzip the file and name "samtools". Then, after you step in the conda environment, you should use the code ```conda activate samtools``` to activate the environment. The reference material is from the "conda-pack" , see https://conda.github.io/conda-pack/.
 
-## 3. File content
-The code is stored in the cloud via link:[https://drive.google.com/drive/folders/1gkLAGiNuijWR-e6dZEROhc9YkZoRivHV](https://drive.google.com/drive/folders/1gkLAGiNuijWR-e6dZEROhc9YkZoRivHV?usp=share_link)
-
-1. "Reads_SNV_inference.py" is the script for the inference with no long range variation case. And a folder named "code_for_SNV_inference" is the supporting functions in the script, which should be put in the same directory of the code.
+## 3. Code folder
+1. "Reads_SNV_inference.py" is the script for the inference with no long range variation case. And a folder named "code_for_SNV_inference" contains the supporting functions, which should be put in the same directory of the code.
 2. "Reads_SNV_inference_SV.py" is the script for the inference with long range variation case.
-3. "Toy example" folder is the folder to contain the example files.
 
 ## 4. Usage
 
-Usage of "Reads_SNV_inference.py" or "Reads_SNV_inference_SV.py": ``` python Reads_SNV_inference.py proposed_k num_cores main_url_bam main_url_ref_con main_url_save``` or``` python Reads_SNV_inference_accelerate_complex_version.py proposed_k num_cores main_url_bam main_url_ref_con main_url_save start_region end_region```  , where ```main_url_bam``` is the path of bam file of the reads, ```main_url_ref``` is the path of the reference path, ```main_url_save``` is the saving files path, ```proposed_k``` is the number of the haplotypes, and ```num_cores``` is the number of cores for parallel computing. We further add the ```start_region``` for the mapping start point of the reference and ```end_region``` for the mapping end of the reference.
+Usage of "Reads_SNV_inference.py":
 
+```shell
+python Reads_SNV_inference.py proposed_k num_cores main_url_bam main_url_ref main_url_save
+```
 
-Toy Example (Stored in https://drive.google.com/drive/folders/1K0sjWhVYUm3uVYf2JK1js9-n62OXei8J?usp=share_link): ```python Reads_SNV_inference.py  3 5 \Toy example\0_reads_bam.bam \Toy example\0_reads_reference.fasta \Toy example ``` to infer the 3 haplotypes of one personusing 5 cores. 
+Here is the explanation for available parameters:
+
+* ``proposed_K``: The number of the haplotypes. 
+* ``num_cores``: The number of cores for parallel computing. 
+* ``main_url_bam``: The path for the input bam file of the reads. 
+* ``main_url_ref``: The path of the reference genome file. 
+* ``main_url_save``: The path for saving outputs. 
+
+Usage of "Reads_SNV_inference_SV.py": 
+
+or``` python ``` 
+
+```Reads_SNV_inference_accelerate_complex_version.py proposed_k num_cores main_url_bam main_url_ref_con main_url_save start_region end_region``` . We further add the ```start_region``` for the mapping start point of the reference and ```end_region``` for the mapping end of the reference
+
+## 5. Toy example
+
+The input reads and reference genome of the toy example is stored in https://drive.google.com/drive/folders/1K0sjWhVYUm3uVYf2JK1js9-n62OXei8J?usp=share_link). Run the example via
+
+```shell
+python Reads_SNV_inference.py  3 5 \Toy example\0_reads_bam.bam \Toy example\0_reads_reference.fasta \Toy example
+```
+
+to infer the 3 haplotypes of one person using 5 CPU cores. 
 
 
 
