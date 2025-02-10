@@ -27,13 +27,13 @@ In bulk sequencing data, the reads lack cell type labels. The advantages of ***D
 Usage of "Reads_SNV_inference.py":
 
 ```shell
-python Reads_SNV_inference.py proposed_k num_cores main_url_bam main_url_ref main_url_save
+python Reads_SNV_inference.py proposed_k num_cores main_url_bam main_url_ref main_url_save start_region end_region
 ```
 
 Usage of "Reads_SNV_inference_SV.py": 
 
 ```
-python Reads_SNV_inference_SV.py proposed_k num_cores main_url_bam main_url_ref main_url_save
+python Reads_SNV_inference_SV.py proposed_k num_cores main_url_bam main_url_ref main_url_save start_region end_region
 ```
 
 Here is the explanation for available parameters:
