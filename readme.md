@@ -30,6 +30,12 @@ Usage of "Reads_SNV_inference.py":
 python Reads_SNV_inference.py proposed_k num_cores main_url_bam main_url_ref main_url_save
 ```
 
+Usage of "Reads_SNV_inference_SV.py": 
+
+```
+python Reads_SNV_inference_SV.py proposed_k num_cores main_url_bam main_url_ref main_url_save
+```
+
 Here is the explanation for available parameters:
 
 * ``proposed_K``: The number of the haplotypes. 
@@ -37,19 +43,15 @@ Here is the explanation for available parameters:
 * ``main_url_bam``: The path for the input bam file of the reads. 
 * ``main_url_ref``: The path of the reference genome file. 
 * ``main_url_save``: The path for saving outputs. 
+* ``start_region``: The mapping start position of the reference.
+* ``end_region``:  The mapping end position of the reference.
 
-Usage of "Reads_SNV_inference_SV.py": 
+## 5. Demo
 
-or``` python ``` 
-
-```Reads_SNV_inference_accelerate_complex_version.py proposed_k num_cores main_url_bam main_url_ref_con main_url_save start_region end_region``` . We further add the ```start_region``` for the mapping start point of the reference and ```end_region``` for the mapping end of the reference
-
-## 5. Toy example
-
-The input reads and reference genome of the toy example is stored in https://drive.google.com/drive/folders/1K0sjWhVYUm3uVYf2JK1js9-n62OXei8J?usp=share_link). Run the example via
+The input reads and reference genome of the demo is stored in the folder "Demo". Run the demo example via
 
 ```shell
-python Reads_SNV_inference.py  3 5 \Toy example\0_reads_bam.bam \Toy example\0_reads_reference.fasta \Toy example
+python Reads_SNV_inference.py  3 5 \Demo\0_reads_bam.bam \Demo\0_reads_reference.fasta \Demo\Results
 ```
 
 to infer the 3 haplotypes of one person using 5 CPU cores. 
