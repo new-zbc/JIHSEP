@@ -14,9 +14,13 @@ In bulk sequencing data, the reads lack cell type labels. The advantages of ***D
 
 2. Down load the zipped package named "[DIHap_sandbox.tar.gz](https://drive.google.com/drive/folders/1jAqb9CF_JGgxz27k0paoil-e3OnzPami?usp=share_link)" from https://drive.google.com/drive/folders/1jAqb9CF_JGgxz27k0paoil-e3OnzPami?usp=share_link.
 
-3. Upload and unzip the "samtools.rar" to the "envs" folder in your server or own computer. One example after Step 1 is "\home\anaconda3\envs\".
+3. Upload and unzip the "DIHap_sandbox.tar.gz" to the "envs" folder of your conda package. The following is an example:
 
-4. If your unzip the file and name "samtools". Then, after you step in the conda environment, you should use the code ```conda activate samtools``` to activate the environment. The reference material is from the "conda-pack" , see https://conda.github.io/conda-pack/.
+   ```sh
+   tar -zxvf /home/project07/.conda/envs/DIHap_sandbox.tar.gz -C /home/project07/.conda/envs/DIHap/
+   ```
+
+4. In above example, the environment name is "DIHap". Then, you should use the code ```conda activate DIHap``` to activate the environment. The reference material is from the "conda-pack" , see https://conda.github.io/conda-pack/.
 
 ## 3. Code folder
 1. "Reads_SNV_inference.py" is the script for the inference with no long range variation case. And a folder named "code_for_SNV_inference" contains the supporting functions, which should be put in the same directory of the code.
@@ -26,13 +30,13 @@ In bulk sequencing data, the reads lack cell type labels. The advantages of ***D
 
 Usage of "Reads_SNV_inference.py":
 
-```shell
+```sh
 python Reads_SNV_inference.py proposed_k num_cores main_url_bam main_url_ref main_url_save start_region end_region
 ```
 
 Usage of "Reads_SNV_inference_SV.py": 
 
-```
+```sh
 python Reads_SNV_inference_SV.py proposed_k num_cores main_url_bam main_url_ref main_url_save start_region end_region
 ```
 
