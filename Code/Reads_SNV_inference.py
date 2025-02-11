@@ -39,11 +39,12 @@ Standardbase = ['a', 't', 'c', 'g', '-', 'n']
 if __name__ == '__main__':
     print(sys.argv)
     proposed_k = int(sys.argv[1])
-    main_url_input_bam = sys.argv[2]
-    main_url_input_ref = sys.argv[3]
-    main_url_save = sys.argv[4]
-    start_region = int(sys.argv[5])
-    end_region = int(sys.argv[6])
+    num_cores = int(sys.argv[2])
+    main_url_input_bam = sys.argv[3]
+    main_url_input_ref = sys.argv[4]
+    main_url_save = sys.argv[5]
+    start_region = int(sys.argv[6])
+    end_region = int(sys.argv[7])
 
   
     corretion_eps_from_zero = 0.0000000001
@@ -210,7 +211,7 @@ if __name__ == '__main__':
 
         new_keys2 = copy.deepcopy(coolection_snp1)
        
-        with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+        with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
         
             Jaccard_matrix_df3=pool.starmap(sip.Jaccard_pair9,[(combination_list2.iloc[index,0],combination_list2.iloc[index,1],final_indicator_table,\
@@ -220,7 +221,7 @@ if __name__ == '__main__':
         pool.join()
     else:
         print('warning, no sig snp')
-        with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+        with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
         
     
@@ -407,7 +408,7 @@ if __name__ == '__main__':
                 if len(ele_list) > 0:
     
                     remaining_independent = copy.deepcopy(full_bone)
-                    with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                    with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
                     
     
@@ -737,7 +738,7 @@ if __name__ == '__main__':
                                 #block_idnex = block_idnex +1
                             loop_num = loop_num + 1
     
-                        with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                        with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
                             Result_infer_ind = pool.starmap(sip.signle_sites_infer_max2, [(remaining_independent[index], present_clu_dis2[kk][int(remaining_independent[index]), :], standard_ref_code[int(remaining_independent[index])],
                                                                                    [gamma1[kk], gamma2[kk], gamma3[kk], gamma4[kk]], theta_,tao) for index in range(len(remaining_independent))])
@@ -862,7 +863,7 @@ if __name__ == '__main__':
                         con_ref_prob_full[kk, 4] = n_c - 2 * \
                             num_del_evo_block + first_del_flag + end_del_flag
                     else:
-                        with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                        with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
                             Result_infer_ind = pool.starmap(sip.signle_sites_infer_max2, [(remaining_independent[index], present_clu_dis2[kk][int(remaining_independent[index]), :], standard_ref_code[int(remaining_independent[index])],
                                                                                    [gamma1[kk], gamma2[kk], gamma3[kk], gamma4[kk]], theta_,tao2) for index in range(len(remaining_independent))])
@@ -1310,7 +1311,7 @@ if __name__ == '__main__':
                                         remaining_independent.append(
                                             start_tem)
     
-                                    with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                                    with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
                     
                                    
                     
@@ -1323,7 +1324,7 @@ if __name__ == '__main__':
                                     
     
                                     # select the block
-                                    with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                                    with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
                                         Dep_dic = pool.starmap(sip.select_read_blocks, [(
                                         list_block[index][0], list_block[index][1], ele_list, rselct_result) for index in range(len(list_block))])
@@ -1332,7 +1333,7 @@ if __name__ == '__main__':
                                     pool.join()
     
                                    
-                                    with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                                    with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
                                         Ref_dic_block = pool.starmap(sip.select_ref_block, [(
                                         list_block[index][0], list_block[index][1], Best_ref[kk]) for index in range(len(list_block))])
                                     
@@ -1341,7 +1342,7 @@ if __name__ == '__main__':
                                     pool.join()
     
                                     # perfomr the block selection
-                                    with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                                    with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
                                     
                                         Result_infer_dep = pool.starmap(sip.block_sites_infer_ECM2, [(list_block[index][0], list_block[index][1], present_clu_dis2[kk][int(list_block[index][0]):int(list_block[index][1])+1, :],
@@ -1460,7 +1461,7 @@ if __name__ == '__main__':
                                     con_ref_prob_full[kk, 4] = n_c - 2 * \
                                         num_del_evo_block + first_del_flag + end_del_flag
                                 else:
-                                    with  mp.get_context("spawn").Pool(5,maxtasksperchild=1000) as pool:
+                                    with  mp.get_context("spawn").Pool(num_cores,maxtasksperchild=1000) as pool:
     
                                         Result_infer_ind = pool.starmap(sip.signle_sites_infer_max2, [(remaining_independent[index], present_clu_dis2[kk][int(remaining_independent[index]), :], standard_ref_code[int(remaining_independent[index])],
                                                                                                [gamma1[kk], gamma2[kk], gamma3[kk], gamma4[kk]], theta_,tao2) for index in range(len(remaining_independent))])
