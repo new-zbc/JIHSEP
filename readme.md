@@ -55,7 +55,7 @@ Here is the explanation for available parameters:
 The input reads and reference genome of the demo is stored in the folder "Demo". Run the demo example via
 
 ```shell
-python Reads_SNV_inference.py  3 5 \Demo\0_reads_bam.bam \Demo\0_reads_reference.fasta \Demo\Results 0 6545
+python Reads_SNV_inference.py  3 5 Demo/Bam/0_reads_bam.bam.sorted.bam Demo/Reference/0_reads_reference.fasta Demo/Results 0 6545
 ```
 
 to infer the 3 haplotypes of one person using 5 CPU cores. 
